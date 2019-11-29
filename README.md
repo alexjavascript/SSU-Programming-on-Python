@@ -826,3 +826,37 @@ pylab.plot(xlist, ylist, "-.b")
 pylab.show()
 ```
 
+### Задание 3
+#### Номер 15
+
+```
+import math
+import pylab
+from matplotlib import mlab
+
+def func_1 (x):
+    return x**(1 / 5)
+
+def func_2 (x):
+    return (- 1 * x**(1 / 5))
+
+def func_3 (x):
+    return (2 * x**(1 / 5))
+
+xmin = 1.0
+xmax = 32.0
+
+dx = 0.01
+
+xlist = mlab.frange(xmin, xmax, dx)
+ylist_1 = [func_1 (x) for x in xlist]
+ylist_2 = [func_2 (x) for x in xlist]
+ylist_3 = [func_3 (x) for x in xlist]
+
+pylab.plot(xlist, ylist_1, "-.b")
+pylab.plot(xlist, ylist_2, "-.r")
+pylab.plot(xlist, ylist_3, "-.g")
+
+pylab.show()
+```
+
