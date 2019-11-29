@@ -853,10 +853,12 @@ ylist_1 = [func_1 (x) for x in xlist]
 ylist_2 = [func_2 (x) for x in xlist]
 ylist_3 = [func_3 (x) for x in xlist]
 
-pylab.plot(xlist, ylist_1, "-.b")
-pylab.plot(xlist, ylist_2, "-.r")
-pylab.plot(xlist, ylist_3, "-.g")
+pylab.plot(xlist, ylist_1, "-.b", label="f(x)")
+pylab.plot(xlist, ylist_2, "-.r", label="-1 * f(x)")
+pylab.plot(xlist, ylist_3, "-.g", label="2 * f(x)")
 
+pylab.grid()
+pylab.legend(loc='upper right') 
 pylab.show()
 ```
 
