@@ -888,3 +888,6 @@ axes = Axes3D(fig)
 axes.plot_surface(x, y, z)
 pylab.show()
 ```
+
+![Figure_1](https://user-images.githubusercontent.com/20648009/70770292-b511d000-1d64-11ea-9795-b87d25714a85.png)
+
