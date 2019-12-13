@@ -146,3 +146,34 @@ pylab.show()
 
 ![Figure_1](https://user-images.githubusercontent.com/20648009/70770292-b511d000-1d64-11ea-9795-b87d25714a85.png)
 
+
+```
+import pylab
+from mpl_toolkits.mplot3d import Axes3D
+import numpy
+import matplotlib.pyplot as plt
+
+
+def makeData ():
+    x = numpy.arange (-3, 3, 0.1)
+    y = numpy.arange (-3, 3, 0.1)
+    
+    xgrid, ygrid = numpy.meshgrid(x, y)
+    zgrid = numpy.sqrt( xgrid**2 + ygrid**2 )
+    
+    return xgrid, ygrid, zgrid
+
+
+x, y, z = makeData()
+
+fig = pylab.figure()
+
+cs = plt.contourf(x, y, z, 100)
+
+plt.colorbar(cs)
+plt.show()
+```
+
+![Figure_1-1](https://user-images.githubusercontent.com/20648009/70772546-c65eda80-1d6c-11ea-8515-fc9913edbd0e.png)
+
+
