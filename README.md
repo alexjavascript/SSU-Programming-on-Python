@@ -862,3 +862,29 @@ pylab.legend(loc='upper right')
 pylab.show()
 ```
 
+### Задание 4
+#### Номер 15
+
+```
+import pylab
+from mpl_toolkits.mplot3d import Axes3D
+import numpy
+
+
+def makeData ():
+    x = numpy.arange (-3, 3, 0.1)
+    y = numpy.arange (-3, 3, 0.1)
+    
+    xgrid, ygrid = numpy.meshgrid(x, y)
+    zgrid = numpy.sqrt( xgrid**2 + ygrid**2 )
+    
+    return xgrid, ygrid, zgrid
+
+
+x, y, z = makeData()
+
+fig = pylab.figure()
+axes = Axes3D(fig)
+axes.plot_surface(x, y, z)
+pylab.show()
+```
