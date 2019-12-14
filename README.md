@@ -309,9 +309,36 @@ pylab.plot(xlist, ylist)
 pylab.show()
 ```
 
-### Задание 2
-#### Номер 15
+#### Номер 6
+```
+import pylab
+import numpy as np
+from matplotlib import mlab
 
+# Здесь функция, вычисляющая игрек
+def func (t):
+  return (np.e**(-1 * t) * np.cos(2 * np.pi * t))
+
+tmin = -10
+tmax = 10
+step = 0.01
+
+# !!! Создадим список координат по оси X на отрезке [-xmin; xmax], включая концы. Создание массива с иксами.
+tlist = mlab.frange(tmin, tmax, step)
+
+# Вычислим значение функции в заданных точках
+ylist = [func (x) for x in tlist]
+
+# !!! Нарисуем одномерный график
+pylab.plot(tlist, ylist)
+
+# !!! Покажем окно с нарисованным графиком
+pylab.show()
+```
+
+### Задание 2
+
+#### Номер 15
 ```
 import math
 import pylab
@@ -333,6 +360,33 @@ ylist = [func (x) for x in xlist]
 
 # !!! Нарисуем одномерный график
 pylab.plot(xlist, ylist, "-.b")
+
+# !!! Покажем окно с нарисованным графиком
+pylab.show()
+```
+
+#### Номер 6
+```
+import math
+import pylab
+import numpy as np
+from matplotlib import mlab
+
+def func (t):
+    return (np.e**(-1 * t) * np.cos(2 * np.pi * t))
+
+tmin = -10
+tmax = 10
+step = 0.01
+
+# !!! Создадим список координат по оси X на отрезке [-xmin; xmax], включая концы
+tlist = mlab.frange(tmin, tmax, step)
+
+# Вычислим значение функции в заданных точках
+ylist = [func (x) for x in tlist]
+
+# !!! Нарисуем одномерный график
+pylab.plot(tlist, ylist, "--b")
 
 # !!! Покажем окно с нарисованным графиком
 pylab.show()
@@ -371,6 +425,39 @@ pylab.plot(xlist, ylist_3, "-.g", label="2 * f(x)")
 
 pylab.grid()
 pylab.legend(loc='upper right') 
+pylab.show()
+```
+
+#### Номер 6
+```
+import pylab
+import numpy as np
+from matplotlib import mlab
+
+def function1 (t):
+    return (np.e**(-1 * t) * np.cos(2 * np.pi * t))
+
+def function2 (t):
+    return (-1 * np.e**(-1 * t) * np.cos(2 * np.pi * t))
+
+def function3 (t):
+    return (2 * np.e**(-1 * t) * np.cos(2 * np.pi * t))
+
+tmin = -10
+tmax = 10
+step = 0.01
+
+tlist = mlab.frange(tmin, tmax, step)
+ylist_1 = [function1(t) for t in tlist]
+ylist_2 = [function2(t) for t in tlist]
+ylist_3 = [function3(t) for t in tlist]
+
+pylab.plot(tlist, ylist_1, "-.b", label="     f(x)")
+pylab.plot(tlist, ylist_2, "--r", label="-1 * f(x)")
+pylab.plot(tlist, ylist_3, "-.g", label=" 2 * f(x)")
+
+pylab.grid()
+pylab.legend(loc='upper left') 
 pylab.show()
 ```
 
@@ -433,4 +520,28 @@ plt.show()
 
 ![Figure_1-1](https://user-images.githubusercontent.com/20648009/70772546-c65eda80-1d6c-11ea-8515-fc9913edbd0e.png)
 
+#### Номер 6
+```
+import pylab
+import numpy
+import matplotlib.pyplot as plt
 
+def makeData ():
+    x = numpy.arange(-3, 3, 0.1)
+    y = numpy.arange(-3, 3, 0.1)
+    
+    xgrid, ygrid = numpy.meshgrid(x, y)
+    zgrid = xgrid * xgrid + ygrid * ygrid - ygrid
+    
+    return xgrid, ygrid, zgrid
+
+
+x, y, z = makeData()
+
+fig = pylab.figure()
+
+cs = plt.contourf(x, y, z, 100)
+
+plt.colorbar(cs)
+plt.show()
+```
