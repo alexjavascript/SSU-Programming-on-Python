@@ -12,14 +12,126 @@
 
 Дано число n. Напечатать те натуральные числа, квадрат которых не превышает n.
 
-```sh
-n = int(input("Enter n: "))
-i = 1
+```
+n = int(input("Enter N >> "))
+i = 0
 while (i * i <= n):
   print(i)
-  i += 1
+  i = i + 1
 ```
 
+### Задание 2
+#### Номер 5
+
+Дан целочисленный массив размера N. Вывести вначале все содержащиеся в данном массиве четные числа в порядке возрастания их индексов, а затем — все нечетные числа в порядке убывания их индексов.  
+
+```
+n = int(input("Enter N >> "))
+a = []
+
+i = 0
+while (i < n):
+  buff = int(input("Enter your value >> "))
+  a.append(buff)
+  i = i + 1
+
+b = []
+i = 0
+while(i < n):
+  if (a[i] % 2 == 0):
+    b.append(a[i])
+  i = i + 1
+
+i = 0
+while(i < n):
+  if (a[i] % 2 != 0):
+    b.append(a[i])
+  i = i + 1
+
+i = 0;
+while (i < n):
+  print(b[i])
+  i = i + 1
+```
+
+### Задание 3
+#### Номер 15
+
+Дан массив размера N. Найти номер его первого локального минимума (локальный минимум — это элемент, который меньше любого из своих соседей).
+
+```
+n = int(input("Enter N >> "))
+a = []
+
+i = 0
+while (i < n):
+  buff = int(input("Enter your value >> "))
+  a.append(buff)
+  i = i + 1
+
+i = 1;
+while (i < n - 1):
+  if (a[i] < a[i - 1] and a[i] < a[i + 1]):
+    print("Local minimum is a[", i, "] = ", a[i])
+  i = i + 1
+```
+
+
+### Задание 4
+#### Номер 5
+
+Дана целочисленная матрица размера M × N. Найти количество ее столбцов, все элементы которых различны.
+
+```
+n = int(input("Enter N >> "))
+m = int(input("Enter M >> "))
+result = 0
+
+a = []
+i = 0
+while (i < n):
+  b = []
+  j = 0
+  while (j < m):
+    buff = int(input("Enter your value >> "))
+    b.append(buff)
+    j = j + 1
+  a.append(b)
+  i = i + 1
+  
+i = 0
+while (i < m):
+  b = []
+  j = 0
+  while (j < n):
+    b.append(a[j][i])
+    j = j + 1
+  allDifferent = True
+  b.sort()
+  j = 0
+  while (j < n - 1):
+    if (b[j] == b[j + 1]):
+      allDifferent = False
+      print("NOT ALL DIFFERENT", end=" ")
+      break
+    j = j + 1
+  print(b)
+  if (allDifferent):
+    result = result + 1
+    print("ALL DIFFERENT", b)
+  i = i + 1
+
+i = 0
+while (i < n):
+  j = 0
+  while (j < m):
+    print(a[i][j], end = " ")
+    j = j + 1
+  print()
+  i = i + 1
+
+print("Quantity of Columns which Elements All Different is : ", result)
+```
 
 ## Блок 3
 
