@@ -400,3 +400,8 @@ plt.show()
 ![Figure_1-1](https://user-images.githubusercontent.com/20648009/70772546-c65eda80-1d6c-11ea-8515-fc9913edbd0e.png)
 
 
+# СДЕЛАТЬ!
+## Блок 0 
+## 4 задание из нам пая где сравнение алгоритмов 
+## Титаник 
+## Финал
