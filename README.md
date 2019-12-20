@@ -405,3 +405,63 @@ plt.show()
 ## 4 задание из нам пая где сравнение алгоритмов 
 ## Титаник 
 ## Финал
+
+
+'''
+15.Выполнить обработку элементов прямоугольной матрицы ,
+имеющей строк и столбцов. Определить, сколько нулевых
+элементов содержится в каждом столбце и в каждой строке матрицы.
+Результат оформить в виде матрицы из строк и
+столбцов.
+'''
+'''
+import numpy as np
+import random
+
+n = int(input("Enter n >> "))
+m = int(input("Enter m >> "))
+a = np.zeros((n,m))
+
+b = []
+
+for i in range(n):
+  q = 0
+  for j in range(m):
+    a[i][j] = np.floor(random.random() * 200 - 100)
+    if (a[i][j] == 0):
+      q = q + 1
+    b.append(q)
+
+for i in range(n):
+  for j in range(m):
+    print(a[i][j], end=" | ")
+  print()
+
+print("------")
+
+for i in range(n):
+  print(b[i], end=" ")
+
+print()
+
+print("------")
+
+c=[]
+for j in range(m):
+  q = 0
+  for i in range(n):
+    if (a[i][j] == 0):
+      q = q + 1
+  c.append(q)
+
+for i in range(m):
+  print(c[i])
+
+'''
+
+
+
+
+
+
+
