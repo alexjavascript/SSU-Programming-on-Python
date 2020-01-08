@@ -264,6 +264,7 @@ print(max)
 
 ### Задание 1
 
+<<<<<<< HEAD
 #### Номер 15
 1. Сгенерировать матрицу размером 2*8, заполненную целыми числами.  
 2. Вывести на экран элемент с индексами [1,4]. 
@@ -275,7 +276,111 @@ print(max)
 8. Найти максимальный элемент в последнем столбце 
 9. Найти максимальный элемент в векторе x среди элементов, перед которыми стоит нулевой 
 10. Подсчитать произведение ненулевых элементов на диагонали прямоугольной матриц
+=======
+1. Сгенерировать матрицу размером 12*3, заполненную целыми числами.
+2. Вывести на экран элемент с индексами [9,1].
+3. Вывести на экран 2 столбец матрицы.
+4. Вывести на экран каждый второй элемент 1 столбца матрицы в
+обратном порядке
+5. Изменить форму матрицы с 12*3 на 6*6.
+6. Возвести каждый элемент матрицы в заданную степень
+7. Найти минимум в каждом столбце
+8. Найти максимальный элемент в последней строке
+9. Дан одномерный массив числовых значений, насчитывающий N
+элементов. Определить имеются ли в массиве два подряд идущих
+отрицательных числа.
+10. Дана матрица. В каждой строке найти первый минимальный элемент.
+Сформировать вектор из элементов строк, расположенных справа от
+минимального (для каждой строки свой минимум)
+>>>>>>> 255741e1074051d339f29fa9ab3a542689d15cec
 
+```
+import numpy as np
+import random
+
+a = np.zeros((12,3))
+
+for i in range(0, 12):
+    for j in range(0, 3):
+        a[i][j] = np.floor(random.random() * 10)
+
+
+print(a)
+print()
+
+print(a[9,1])
+print()
+
+print(a[:,1])
+print()
+
+print(a[-2::-2, 0])
+print()
+
+a = np.reshape(a, (6,6))
+print(a)
+
+n = int(input("Введите степень n: "))
+a = a**n
+
+# 6
+a = np.reshape(a, (6,6))
+print(a)
+print()
+
+''' n = int(input("Введите степень n: ")) '''
+a = a**2
+print(a)
+print()
+
+for i in range(0, 6):
+  print(np.min(a[:,i]))
+print()
+
+print(np.max(a[5]))
+print()
+
+n = 10 
+'''int(input("Введите кол-во элементов n в массиве b: ")) '''
+b = np.zeros(n)
+
+for i in range(0, n):
+  b[i] = np.floor(random.random() * 200 - 100)
+print(b)
+print()
+
+isNegativeSequence = False
+for i in range(0, n - 1):
+  if ( (b[i] < 0) and (b[i+1] < 0) ):
+    isNegativeSequence = True
+    break
+
+if (isNegativeSequence):
+  print("Имеется последовательность с 2 отрицательными подряд значениями") 
+else:
+  print("Не имеется последовательность с 2 отрицательными подряд значениями")
+print() 
+
+print(a)
+print(a[].size)
+c = np.array(0)
+for i in range(0, a[].size):
+  minValue = np.min(a[i])
+  print(minValue)
+  minIndex = np.where(a[i] == minValue)  
+  minIndex = minIndex[0][0]
+  print('1', minIndex)
+
+  vectorRight = np.array(0)
+  vectorRight = a[minIndex:]
+  np.append(c, vectorRight)
+
+  print('end iter',i)
+
+
+print(c)
+
+```
 
 
 ## Блок 9 | Matplotlib
@@ -535,13 +640,72 @@ def makeData ():
     
     return xgrid, ygrid, zgrid
 
+    x, y, z = makeData()
 
-x, y, z = makeData()
+    fig = pylab.figure()
 
-fig = pylab.figure()
+    cs = plt.contourf(x, y, z, 100)
 
-cs = plt.contourf(x, y, z, 100)
+    plt.colorbar(cs)
+    plt.show()
+```
 
-plt.colorbar(cs)
-plt.show()
+
+# СДЕЛАТЬ!
+## Блок 0 
+## 4 задание из нам пая где сравнение алгоритмов 
+## Титаник 
+## Финал
+
+```
+15.Выполнить обработку элементов прямоугольной матрицы ,
+имеющей строк и столбцов. Определить, сколько нулевых
+элементов содержится в каждом столбце и в каждой строке матрицы.
+Результат оформить в виде матрицы из строк и
+столбцов.
+```
+
+```
+import numpy as np
+import random
+
+n = int(input("Enter n >> "))
+m = int(input("Enter m >> "))
+a = np.zeros((n,m))
+
+b = []
+
+for i in range(n):
+  q = 0
+  for j in range(m):
+    a[i][j] = np.floor(random.random() * 200 - 100)
+    if (a[i][j] == 0):
+      q = q + 1
+    b.append(q)
+
+for i in range(n):
+  for j in range(m):
+    print(a[i][j], end=" | ")
+  print()
+
+print("------")
+
+for i in range(n):
+  print(b[i], end=" ")
+
+print()
+
+print("------")
+
+c=[]
+for j in range(m):
+  q = 0
+  for i in range(n):
+    if (a[i][j] == 0):
+      q = q + 1
+  c.append(q)
+
+for i in range(m):
+  print(c[i])
+
 ```
