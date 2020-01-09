@@ -29,6 +29,19 @@ idNames = {
   '1': 'Anny',
   '2': 'Terry',
 }
+
+print(idNames)
+print(idNames['1'])
+
+namesSurnames = {
+  'Alexander': 'Grigoriev',
+  'Nikita': 'Matushin',
+  'Terry', 'Jay',
+}
+
+print(namesSurnames)
+print(namesSurnames['Alexander'])
+
 ```
 
 ### Установка и подключение модулей
