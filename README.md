@@ -276,7 +276,201 @@ print(max)
 9. Найти максимальный элемент в векторе x среди элементов, перед которыми стоит нулевой 
 10. Подсчитать произведение ненулевых элементов на диагонали прямоугольной матриц
 
+### Задание 4
 
+#### Номер 15
+
+Написать программу, реализующую алгоритм из индивидуального задания
+с использованием list, замерить время выполнения и сравнить с готовой
+реализацией алгоритма из библиотеки NumPy.
+
+Для более полного анализа проводить сравнения на разных размерностях
+входных данных. Например, для матриц можно взять три варианта
+реализации: 10х10, 100х100, 500х500. (В зависимости от задания время
+выполнения алгоритма на больших размерностях может быть очень
+большим, в этом случае размерности можно уменьшить)
+
+Сравнить две матрицы на равенство.
+
+```
+import numpy as np
+from datetime import datetime
+
+#        
+# Comparing time on 
+# 10x10 Elements
+#
+
+arrNumpyA  = np.random.randint(10, size = [10,10])
+arrNumpyB = np.random.randint(10, size = [10,10])
+
+arrListA = arrNumpyA.tolist()
+arrListB = arrNumpyB.tolist()
+
+print("10x10 Light Competition is Beginning...")
+
+time = datetime.now()
+result = np.array_equal(arrNumpyA, arrNumpyB)
+timeNumpy = datetime.now() - time 
+print("NumPy Script Time: ", end = " ")
+print(time)
+
+time = datetime.now()
+result = (arrListA == arrListB)
+timeList = datetime.now() - time 
+print("List Script Time: ", end = " ")
+print(time)
+
+if (timeNumpy > timeList):
+    print("NumPy is Winning!")
+elif (timeNumpy < timeList):
+    print("Lists are Winning! Wooow")
+else:
+    print("Draw..")
+
+print()
+print()
+
+#        
+# Comparing time on 
+# 100x100 Elements
+#
+
+arrNumpyA  = np.random.randint(10, size = [100,100])
+arrNumpyB = np.random.randint(10, size = [100,100])
+
+arrListA = arrNumpyA.tolist()
+arrListB = arrNumpyB.tolist()
+
+print("100x100 Average Competition is Beginning...")
+
+time = datetime.now()
+result = np.array_equal(arrNumpyA, arrNumpyB)
+timeNumpy = datetime.now() - time 
+print("NumPy Script Time: ", end = " ")
+print(time)
+
+time = datetime.now()
+result = (arrListA == arrListB)
+timeList = datetime.now() - time 
+print("List Script Time: ", end = " ")
+print(time)
+
+if (timeNumpy > timeList):
+    print("NumPy is Winning!")
+elif (timeNumpy < timeList):
+    print("Lists are Winning! Wooow")
+else:
+    print("Draw..")
+
+print()
+print()
+
+#        
+# Comparing time on 
+# 500x500 Elements
+#
+
+arrNumpyA  = np.random.randint(10, size = [500,500])
+arrNumpyB = np.random.randint(10, size = [500,500])
+
+arrListA = arrNumpyA.tolist()
+arrListB = arrNumpyB.tolist()
+
+print("500x500 Hard Competition is Beginning... There are much more elements... Oh")
+
+time = datetime.now()
+result = np.array_equal(arrNumpyA, arrNumpyB)
+timeNumpy = datetime.now() - time 
+print("NumPy Script Time: ", end = " ")
+print(time)
+
+time = datetime.now()
+result = (arrListA == arrListB)
+timeList = datetime.now() - time 
+print("List Script Time: ", end = " ")
+print(time)
+
+if (timeNumpy > timeList):
+    print("NumPy is Winning!")
+elif (timeNumpy < timeList):
+    print("Lists are Winning! Wooow")
+else:
+    print("Draw..")
+
+print()
+print()
+
+#        
+# Comparing time on 
+# 1000x1000 Elements
+#
+
+arrNumpyA  = np.random.randint(10, size = [1000,1000])
+arrNumpyB = np.random.randint(10, size = [1000,1000])
+
+arrListA = arrNumpyA.tolist()
+arrListB = arrNumpyB.tolist()
+
+print("1000x1000 Serious Competition is Beginning... It is not a Joke at all!")
+
+time = datetime.now()
+result = np.array_equal(arrNumpyA, arrNumpyB)
+timeNumpy = datetime.now() - time 
+print("NumPy Script Time: ", end = " ")
+print(time)
+
+time = datetime.now()
+result = (arrListA == arrListB)
+timeList = datetime.now() - time 
+print("List Script Time: ", end = " ")
+print(time)
+
+if (timeNumpy > timeList):
+    print("NumPy is Winning!")
+elif (timeNumpy < timeList):
+    print("Lists are Winning! Wooow")
+else:
+    print("Draw..")
+
+print()
+print()
+
+#        
+# Comparing time on 
+# 1000x1000 Elements
+#
+
+arrNumpyA  = np.random.randint(10, size = [10000,10000])
+arrNumpyB = np.random.randint(10, size = [10000,10000])
+
+arrListA = arrNumpyA.tolist()
+arrListB = arrNumpyB.tolist()
+
+print("10000x10000 Final. Really Crazy Cometition.. for your device!")
+
+time = datetime.now()
+result = np.array_equal(arrNumpyA, arrNumpyB)
+timeNumpy = datetime.now() - time 
+print("NumPy Script Time: ", end = " ")
+print(time)
+
+time = datetime.now()
+result = (arrListA == arrListB)
+timeList = datetime.now() - time 
+print("List Script Time: ", end = " ")
+print(time)
+
+if (timeNumpy > timeList):
+    print("NumPy is Winning!")
+elif (timeNumpy < timeList):
+    print("Lists are Winning! Wooow")
+else:
+    print("Draw..")
+
+print()
+print()
+```
 
 ## Блок 9 | Matplotlib
 
