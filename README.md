@@ -157,32 +157,48 @@ DataFrame — основной тип данных данного модуля. 
 ##### Создание DataFrame
 1. Создадим словарь с данными
 ```
-raw_data = {
-  'id': [1, 2, 3, 4, 5],
-  'first_name': ['Alex', 'Anna', 'Nikita', 'Lera', 'Maxim'],
-  'last_name': ['Gr', 'Gr', 'Mt', 'Mt', 'Gr'],
-  'age':[23, 22, 24, 23, 17]
+import pandas as pd
+
+data = {
+    'id':       [0, 1, 2, 3],
+    'name':     ['Alex', 'Anny', 'Nikita', 'Lera'],
+    'birthday': ['22.05.1997', '11.10.1998', '17.05.1996', '8.10.1996'] 
 }
-```
-Создадим объект data frame из словаря выше
+
+print(data)
+print()
+
+print( str(data['id'][0]) + ' ' +
+       str(data['name'][0]) + ' ' +
+       str(data['birthday'][0]))
+       
 
 ```
-df = pd.DataFrame(raw_data, columns = ['id', 'first_name', 'last_name', 'age'])
-```
 
-#### Чтение данных
-
-##### Excel
-
-Чтобы получить данные из excel, необходимо воспользоваться следующей командой
+Создадим объект DataFrame и посмотрим его
 
 ```
-titanic_df = pd.read_excel('')
+df = pd.DataFrame(data, columns = ['id', 'name', 'birthday'])
+print(df)
+print()
 ```
 
-##### CSV
+#### Экспорт данных DataFrame -> CSV
 
-Чтобы получить данные из CSV
+CSV представляет обычный текстовый файл, первой строчкой в котором идет перечисление столбцов, а ниже представлены строки данных, разделенные через запятую для столбцов.
+
+Экспорт созданного DataFrame выполняется через следующую команду:
+
 ```
-titanic_df = pd.read_csv('')
+df.to_csv('mydataframe.csv')
+```
+
+#### Импорт данных из CSV -> DataFrame 
+
+Чтобы из CSV получить DataFrame, необходимо выполнить следующую команду
+
+```
+df = pd.read_csv('titanic.csv')
+
+print(df)
 ```
