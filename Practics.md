@@ -22,18 +22,6 @@ while (i * i <= n):
   i = i + 1
 ```
 
-#### Номер 6
-Дано число n. Найти первое натуральное число, квадрат которого больше n.
-```
-n = int(input())
-
-i = 0
-while (i**2 <= n):
-    i = i + 1
-
-print(i)
-```
-
 ### Задание 2
 
 #### Номер 5
@@ -68,28 +56,6 @@ while (i < n):
   i = i + 1
 ```
 
-#### Номер 6
-
-Дан массив A размера N и целое число K (1 ≤ K ≤ N). Вывести элементы массива с порядковыми номерами, кратными K: AK, A2·K, A3·K, … . Условный оператор не использовать
-
-```
-k = int(input("Enter K >> "))
-n = int(input("Enter N >> "))
-a = []
-
-i = 0
-while (i < n):
-    buff = int(input("Enter value for A >> "))
-    a.append(buff)
-    i = i + 1
-
-a2 = a[::k]
-i = 0
-while (i < len(a2)):
-    print(a2[i])
-    i = i + 1
-```
-
 ### Задание 3
 
 #### Номер 15
@@ -111,38 +77,6 @@ while (i < n - 1):
   i = i + 1
 ```
 
-#### Номер 6
-Дан массив размера N и целые числа K и L (1 < K ≤ L ≤ N). Найти среднее арифметическое всех элементов массива, кроме элементов с номерами от K до L включительно. 
-```
-n = int(input("Enter N >> "))
-k = int(input("Enter K >> "))
-l = int(input("Enter L >> "))
-
-a = []
-i = 0
-while (i < n):
-    buff = int(input("Enter value for A >> "))
-    a.append(buff)
-    i = i + 1
-
-a1 = a[: k]
-a2 = a[l + 1:]
-
-i = 0
-while (i < len(a1)):
-    print(a1[i])
-    i = i + 1
-
-print("___")
-
-i = 0
-while (i < len(a2)):
-    print(a2[i])
-    i = i + 1
-
-result = (sum(a1) + sum(a2)) / (len(a1) + len(a2))
-print(result)
-```
 
 ### Задание 4
 
@@ -199,65 +133,6 @@ while (i < n):
 print("Quantity of Columns which Elements All Different is : ", result)
 ```
 
-#### Номер 6
-Дана целочисленная матрица размера M × N. Найти номер последней из ее строк, содержащих максимальное количество одинаковых элементов.
-```
-n = int(input("Enter N >> "))
-m = int(input("Enter M >> "))
-
-def getMaxOfTheSames(a):
-  a.sort()
-
-  max = 1
-  i = 0
-  while (i < len(a) - 1):
-    if (a[i] == a[i + 1]):
-      sames = 1
-      while (a[i] == a[i + 1] and i < len(a) - 1):
-        sames = sames + 1
-        i = i + 1
-
-      if (sames > max):
-        max = sames
-
-    else:
-      i = i + 1
-
-  return max
-
-
-a = []
-i = 0
-while (i < n):
-  b = []
-  j = 0
-  while (j < m):
-    buff = int(input("Enter your value >> "))
-    b.append(buff)
-    j = j + 1
-  a.append(b)
-  i = i + 1
-
-max = 0
-i = 0
-while (i < n):
-  if (getMaxOfTheSames(a[i]) > max):
-    max = getMaxOfTheSames(a[i])
-  i = i + 1
-
-
-i = 0
-while (i < n):
-  j = 0
-  while (j < m):
-    print(a[i][j], end = " ")
-    j = j + 1
-  print()
-  i = i + 1
-
-
-print(max)
-```
 
 
 ## Блок 8 | Numpy
