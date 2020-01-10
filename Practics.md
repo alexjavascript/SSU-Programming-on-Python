@@ -768,6 +768,41 @@ for i in range(m):
 ## Часть 4 | Pandas
 
 ```
+import pandas as pd
+
+df = pd.read_csv("titanic.csv")
+print(df)
+
+# Чему равно число погибших?
+print("Amount of survived ", len(df.loc[df["Survived"]==0]))
+
+# Какой процент спасшиеся женщины и дети составляют от общего количества женщин и детей?
+sp = len(df.loc[(df["Sex"] == "female") & (df["Age"] >= 18)])
+g = len(df.loc[df["Age"] < 18])
+w = sp + g
+vsp = len(df.loc[(df["Sex"] == "female") & (df["Age"] >= 18) & (df["Survived"]==1)])
+vg = len(df.loc[(df["Age"] < 18) & (df["Survived"] == 1)])
+h = vsp + vg
+f = (h * 100) / w
+print("% Women and Children of All the Women and Children ", round(f,2))
+
+# А спасшиеся мужчины от общего количества мужчин?
+mp = len(df.loc[(df["Sex"] == "male")])
+mv = len(df.loc[(df["Sex"] == "male") & (df["Survived"] == 1)])
+km = (mv * 100) / mp
+print("% Men Survived of All the Men", round(km,2))
+
+# Какую долю пассажиры первого класса составляли среди всех пассажиров?
+klsc = len(df.loc[(df["Pclass"] == 1)])
+kls = len(df.loc[(df["Pclass"])])
+klw = (klsc * 100) / kls
+print("% First Class Passengers of All", round(klw,2))
+
+# Какой процент детей от общего числа пассажиров?
+ch = len(df.loc[(df["Age"] < 18)])
+all = len(df.loc[(df["PassengerId"])])
+chp = (ch * 100) / all
+print("% Children of All ", round(chp,2), "%")
 ```
 
 
