@@ -707,11 +707,6 @@ def makeData ():
 ```
 
 
-# СДЕЛАТЬ!
-## Блок 0 
-## 4 задание из нам пая где сравнение алгоритмов 
-## Титаник 
-## Финал
 
 ```
 15.Выполнить обработку элементов прямоугольной матрицы ,
@@ -764,4 +759,84 @@ for j in range(m):
 for i in range(m):
   print(c[i])
 
+```
+
+
+
+
+
+## Часть 4 | Pandas
+
+```
+```
+
+
+## Финал
+
+```
+import pandas as pd
+import numpy as np
+from matplotlib import pyplot
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('titanic.csv')
+
+print ('Quantity of raws ',df['PassengerId'].count())
+print ('Median ',df['Age'].median())
+print ('Moda ',df['Age'].mode())
+print ('Average Value ',df['Age'].mean())
+print ('Min ',df['Age'].min())
+print ('Max ',df['Age'].max())
+
+df['Difference'] = df['Age'].max() - df['Age'].min()
+print(df)
+
+b1=df[(df['Age'] <= 20) & (df['Age'] > 30)]
+print (b1)
+
+b2=df[(df['Age'] <= 30) & (df['Age'] > 40)]
+print (b2)
+
+b3=df[(df['Age'] <= 41) & (df['Age'] > 50)]
+print (b3)
+
+# PLOTS
+
+# Plot data
+labels = ["b1", "b2", "b3"]
+data = [b1['Age'].count(),b2['Age'].count(),b3['Age'].count()]
+
+# Drawing plots
+fig = plt.figure()
+plt.pie (data,labels=labels)
+fig.savefig('circleDiagramm.png')
+
+# Drawing Histogrammas
+fig1 = plt.figure()
+b1['Age'].hist()
+fig1.savefig('figure1.png')
+
+fig2 = plt.figure()
+b2['Age'].hist()
+fig2.savefig('figure2.png')
+
+fig3 = plt.figure()
+b3['Age'].hist()
+fig3.savefig('figure3.png')
+
+# Creating seperate CSVs
+r1 = b1.groupby(['Age']).mean()
+r1.to_csv('r1.csv')
+r1.sort_values(by=['Age', 'Sex'])
+print(r1)
+
+r2 = b2.groupby(['Age']).mean()
+r2.to_csv('r2.csv')
+r2.sort_values(by=['Age', 'Name'])
+print(r2)
+
+r3=b3.groupby(['Age']).mean()
+r3.to_csv('r3.csv')
+r3.sort_values(by=['Sex', 'Name'])
+print(r3)
 ```
